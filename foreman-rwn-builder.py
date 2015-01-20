@@ -19,7 +19,7 @@ def _usage():
     print ""
     print " The template format is a csv file as follows:"
     print ""
-    print " HOSTNAME;DOMAIN;SUBNET_ID;ENVIRONMENT;ARCHITECTURE;HOSTGROUP;OPERATING_SYSTEM;MAC;IP;PTABLE;MEDIA;PUPPET_CA_PROXY;PUPPET_PROXY"
+    print " HOSTNAME;DOMAIN;SUBNET;ENVIRONMENT;ARCHITECTURE;HOSTGROUP;OPERATING_SYSTEM;MAC;IP;PTABLE;MEDIA;PUPPET_CA_PROXY;PUPPET_PROXY"
     print ""
     print " Use the exact name of those resources as they appear in Foreman GUI"
     print ""
@@ -93,10 +93,6 @@ def main(argv):
     for server in servers:
         print ''
         print 'Getting parameters for ' + cyan(server) + '...'
-
-
-        #build_dict['location_id'] = foreman_api.locations.show(id=servers[server]['location'])['id']
-        #print 'Location ' + cyan(servers[server]['location']) + ' has id: ' + cyan(build_dict['location_id'])
         
         build_dict['hostgroup_id'] = foreman_api.hostgroups.show(id=servers[server]['hostgroup'])['id']
         print 'Hostgroup ' + cyan(servers[server]['hostgroup']) + ' has id: ' + cyan(build_dict['hostgroup_id'])
@@ -106,9 +102,6 @@ def main(argv):
 
         build_dict['architecture_id'] = foreman_api.architectures.show(id=servers[server]['architecture'])['id']
         print 'Architecture ' + cyan(servers[server]['architecture']) + ' has id: ' + cyan(build_dict['architecture_id'])
-
-        #build_dict['compute_resource_id'] = foreman_api.compute_resources.show(id=servers[server]['compute_resource'])['id']
-        #print 'Compute Resource ' + cyan(servers[server]['compute_resource']) + ' has id: ' + cyan(build_dict['compute_resource_id'])
 
         build_dict['name'] = server
         print 'Name: ' + cyan(server)
@@ -143,28 +136,12 @@ def main(argv):
 
         build_dict['compute_attributes'] = {}
 
-        #Find out compute attributes in compute_resource knowing the compute_profile 
-        #for compute_profiles in foreman_api.compute_resources.show(id=servers[server]['compute_resource'])['compute_attributes']:
-        #    if compute_profiles['compute_profile_name'] == servers[server]['compute_profile']:
-        #        build_dict['compute_attributes'].update(compute_profiles['vm_attrs'])
-        #        print 'Compute attributes for ' + cyan(servers[server]['compute_profile']) + ' are: ' + cyan(compute_profiles['vm_attrs'])
-
         subnets = foreman_api.subnets.index()['results']
         subnets_dict = {}
         for subnet in subnets:
             subnets_dict[subnet['id']] = subnet['vlanid']
 
-        #for network in foreman_api.compute_resources.available_networks(id=build_dict['compute_resource_id'],cluster_id=build_dict['compute_attributes']['cluster'])['results']:
-        #    vlanid = subnets_dict[build_dict['subnet_id']]
-        #    if vlanid in network['name']:
-        #        build_dict['compute_attributes'].update({'nics_attributes':{ '0':{ 'name':'NIC1', 'network':network['id'] } } })
-        #        build_dict['compute_attributes']['interfaces_attributes'].clear()
-        #        build_dict['compute_attributes']['interfaces_attributes'].update({ '0':{ 'name':'NIC1', 'network':network['id'] } })
-        #        print 'Network ' + cyan(servers[server]['subnet']) + ' with VLAN_ID ' + cyan(vlanid) + ' in ' + cyan(servers[server]['compute_resource']) + ' ' + cyan(build_dict['compute_attributes']['cluster']) + ' has id: ' + cyan(network['id'])
-
 #SERVER BUILD
-        #Setup the machine to be started upon creation
-        #build_dict['compute_attributes']['start'] = '1'
         build_dict['build'] = 'true'
         print ''
         print 'Requesting machine creation...'
