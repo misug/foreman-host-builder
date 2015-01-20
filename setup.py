@@ -15,6 +15,6 @@ setup(name='foreman-host-builder',
       author_email='xnaveira@gmail.com',
       url='https://github.com/xnaveira/foreman-host-builder',
       install_requires=['python-foreman','fabric','ConfigParser'],
-      scripts=['foreman-host-builder.py'],
+      scripts=['foreman-rwn-builder.py'],
       packages=['fhb'],
      )
