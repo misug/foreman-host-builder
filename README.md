@@ -58,9 +58,14 @@ The way it works is taking as input a template file in a given format. In the te
 
 The following elements must be prepared in foreman before attempting to create the machines
 
-* hostgroup
 * domain
 * subnet
+* environemnt
+* architecture
+* hostgroup
+* operating system
+* partition table 
+* installation media
 * puppet ca
 * puppet master
 
@@ -69,8 +74,6 @@ The following elements must be prepared in foreman before attempting to create t
 The template file supports comments preceded by the '#' symbol.  Every non preceded by '#' line will be interpreted as a server. The expected fields are the following (semicolon separated), the exact name used in foreman must be provided in the template file. 
 
         #HOSTNAME;DOMAIN;SUBNET;ENVIRONMENT;ARCHITECTURE;HOSTGROUP;OPERATING_SYSTEM;MAC;IP;PTABLE;MEDIA;PUPPET_CA_PROXY;PUPPET_PROXY
-
-
 
 ### Command line arguments
 
