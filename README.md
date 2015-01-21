@@ -13,11 +13,13 @@
 
 This package is a fork of foreman-host-builder by [xnaveira/foreman-host-builder](https://github.com/xnaveira/foreman-host-builder). It contains two scripts that use the python-foreman module to build a set of hosts in foreman.
 
-* foreman-host-builder.py (provides machines for different Foreman's compute resources)
+* foreman-host-builder.py (provides machines into Foreman's compute resources)
 
 * foreman-rwn-builder.py (provides bare metal worker nodes)
 
 The configuration resides in the file *config.cfg*.
+
+----
 
 # Installation
 
@@ -34,15 +36,13 @@ Or, if you are only interested in the script:
 
                 pip install foreman-host-builder
 
+----
+
 # Configuration
 
 The configuration in *config.cfg* can either be manually edited or entered at script execution time. If you are editing the file manually you have to enconde the passwords in base64.
 
 If any of the values in *config.cfg* is not initialized, the script will ask for them and offer the possibility of saving those values to the file. The passwords are obfuscated with base64 encoding, while this offers no security (that should be provided by the right management of user permissions) it does difficult the fact of someone seeing the password while you are editing the file.
-
-The configuration values are the addresses and credentials of the systems used by the scripts, these are:
-
-* Foreman REST api
 
 ----
 
@@ -73,7 +73,7 @@ The following elements must be prepared in foreman before attempting to create t
 
 The template file supports comments preceded by the '#' symbol.  Every non preceded by '#' line will be interpreted as a server. The expected fields are the following (semicolon separated), the exact name used in foreman must be provided in the template file. 
 
-        #HOSTNAME;DOMAIN;SUBNET;ENVIRONMENT;ARCHITECTURE;HOSTGROUP;OPERATING_SYSTEM;MAC;IP;PTABLE;MEDIA;PUPPET_CA_PROXY;PUPPET_PROXY
+        HOSTNAME;DOMAIN;SUBNET;ENVIRONMENT;ARCHITECTURE;HOSTGROUP;OPERATING_SYSTEM;MAC;IP;PTABLE;MEDIA;PUPPET_CA_PROXY;PUPPET_PROXY
 
 ### Command line arguments
 
@@ -109,14 +109,11 @@ The following elements must be prepared in foreman before attempting to create t
 * domain
 * subnet
 
-
 ### Template file format
 
 The template file supports comments preceded by the '#' symbol.  Every non preceded by '#' line will be interpreted as a server. The expected fields are the following (semicolon separated), the exact name used in foreman must be provided in the template file. 
 
         HOSTNAME;DOMAIN;LOCATION;SUBNET;ENVIRONMENT;ARCHITECTURE;COMPUTE_RESOURCE;HOSTGROUP;COMPUTE_PROFILE;OPERATING_SYSTEM;IP;PTABLE;MEDIA;PUPPET_CA_PROXY;PUPPET_PROXY"
-
-
 
 ### Command line arguments
 
