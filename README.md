@@ -6,8 +6,8 @@
 2. [Installation](#Installation)
 3. [Configuration](#Configuration)
 4. [Usage](#Usage)
-    * [foreman-rwn-builder.py](##foreman-rwn-builder.py)
-    * [foreman-host-builder.py](##foreman-host-builder.py)
+    * [foreman-rwn-builder.py](#foreman-rwn-builder.py)
+    * [foreman-host-builder.py](#foreman-host-builder.py)
 
 # Overview
 
