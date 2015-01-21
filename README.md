@@ -2,11 +2,11 @@
 
 #### Table of Contents
 
-1. [Overview](#foreman-host-builder)
+1. [Overview](#Overview)
 
-# foreman-host-builder 
+# Overview
 
-This package is a fork of foreman-host-builder by [xnaveira/foreman-host-builder](#https://github.com/xnaveira/foreman-host-builder). It contains two scripts that use the python-foreman module to build a set of hosts in foreman.
+This package is a fork of foreman-host-builder by [xnaveira/foreman-host-builder](https://github.com/xnaveira/foreman-host-builder). It contains two scripts that use the python-foreman module to build a set of hosts in foreman.
 
 * foreman-host-builder.py (IMPORTANT: At the moment it is only tested with vmware and ovirt backends. Amazon and Google are under development.)
 
