@@ -3,18 +3,23 @@
 #### Table of Contents
 
 1. [Overview](#Overview)
+2. [Installation](#Installation)
+3. [Configuration](#Configuration)
+4. [Usage](#Usage)
+4.1[foreman-rwn-builder.py](##foreman-rwn-builder.py)
+4.1[foreman-host-builder.py](##foreman-host-builder.py)
 
 # Overview
 
 This package is a fork of foreman-host-builder by [xnaveira/foreman-host-builder](https://github.com/xnaveira/foreman-host-builder). It contains two scripts that use the python-foreman module to build a set of hosts in foreman.
 
-* foreman-host-builder.py (IMPORTANT: At the moment it is only tested with vmware and ovirt backends. Amazon and Google are under development.)
+* foreman-host-builder.py (provides machines for different Foreman's compute resources)
 
-* foreman-rwn-builder.py (IMPORTANT: At the moment it is only tested with bare metal provisioning)
+* foreman-rwn-builder.py (provides bare metal worker nodes)
 
 The configuration resides in the file *config.cfg*.
 
-## Installation
+# Installation
 
 Get the code from this repository:
 
@@ -29,7 +34,7 @@ Or, if you are only interested in the script:
 
                 pip install foreman-host-builder
 
-## Configuration
+# Configuration
 
 The configuration in *config.cfg* can either be manually edited or entered at script execution time. If you are editing the file manually you have to enconde the passwords in base64.
 
@@ -40,6 +45,8 @@ The configuration values are the addresses and credentials of the systems used b
 * Foreman REST api
 
 ----
+
+# Usage
 
 ## foreman-rwn-builder.py
 
@@ -65,7 +72,7 @@ The template file supports comments preceded by the '#' symbol.  Every non prece
 
 
 
-## Command line arguments
+### Command line arguments
 
 From running `./foreman-rwn-builder.py`:
 
@@ -108,7 +115,7 @@ The template file supports comments preceded by the '#' symbol.  Every non prece
 
 
 
-## Command line arguments
+### Command line arguments
 
 From running `./foreman-host-builder.py`:
 
