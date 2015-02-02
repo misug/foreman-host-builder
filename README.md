@@ -9,7 +9,7 @@
     * [foreman-rwn-builder.py](#foreman-rwn-builder.py)
     * [foreman-host-builder.py](#foreman-host-builder.py)
 
-## Overview
+#Overview
 
 This package is a fork of foreman-host-builder by [xnaveira/foreman-host-builder](https://github.com/xnaveira/foreman-host-builder). It contains two scripts that use the python-foreman module to build a set of hosts in foreman.
 
@@ -21,7 +21,7 @@ The configuration resides in the file *config.cfg*.
 
 ----
 
-# Installation
+#Installation
 
 foreman-host-builder requires gcc and python-devel when executing the setup installation.
 
@@ -40,7 +40,7 @@ Or, if you are only interested in the script:
 
 ----
 
-# Configuration
+#Configuration
 
 The configuration in *config.cfg* can either be manually edited or entered at script execution time. If you are editing the file manually you have to enconde the passwords in base64.
 
@@ -48,9 +48,9 @@ If any of the values in *config.cfg* is not initialized, the script will ask for
 
 ----
 
-# Usage
+#Usage
 
-## foreman-rwn-builder.py
+##foreman-rwn-builder.py
 
 It creates a set of real worker nodes using the foreman API and assuming that the foreman instance that it will be using is configured and able to create machines by itself. 
 
@@ -71,13 +71,13 @@ The following elements must be prepared in foreman before attempting to create t
 * puppet ca
 * puppet master
 
-### Template file format
+###Template file format
 
 The template file supports comments preceded by the '#' symbol.  Every non preceded by '#' line will be interpreted as a server. The expected fields are the following (semicolon separated), the exact name used in foreman must be provided in the template file. 
 
         HOSTNAME;DOMAIN;SUBNET;ENVIRONMENT;ARCHITECTURE;HOSTGROUP;OPERATING_SYSTEM;MAC;IP;PTABLE;MEDIA;PUPPET_CA_PROXY;PUPPET_PROXY
 
-### Command line arguments
+###Command line arguments
 
 From running `./foreman-rwn-builder.py`:
 
@@ -94,7 +94,7 @@ From running `./foreman-rwn-builder.py`:
            
             Use the exact name of those resources as they appear in Foreman GUI
 
-## foreman-host-builder.py
+##foreman-host-builder.py
 
 This is a script that creates a set of virtual machines using the foreman API. It aims to work independently of what virtualization provider the Foreman is using.
 
@@ -111,13 +111,13 @@ The following elements must be prepared in foreman before attempting to create t
 * domain
 * subnet
 
-### Template file format
+###Template file format
 
 The template file supports comments preceded by the '#' symbol.  Every non preceded by '#' line will be interpreted as a server. The expected fields are the following (semicolon separated), the exact name used in foreman must be provided in the template file. 
 
         HOSTNAME;DOMAIN;LOCATION;SUBNET;ENVIRONMENT;ARCHITECTURE;COMPUTE_RESOURCE;HOSTGROUP;COMPUTE_PROFILE;OPERATING_SYSTEM;IP;PTABLE;MEDIA;PUPPET_CA_PROXY;PUPPET_PROXY"
 
-### Command line arguments
+###Command line arguments
 
 From running `./foreman-host-builder.py`:
 
