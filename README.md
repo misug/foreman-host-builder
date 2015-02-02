@@ -9,7 +9,7 @@
     * [foreman-rwn-builder.py](#foreman-rwn-builder.py)
     * [foreman-host-builder.py](#foreman-host-builder.py)
 
-# Overview
+## Overview
 
 This package is a fork of foreman-host-builder by [xnaveira/foreman-host-builder](https://github.com/xnaveira/foreman-host-builder). It contains two scripts that use the python-foreman module to build a set of hosts in foreman.
 
