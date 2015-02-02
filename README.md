@@ -23,11 +23,13 @@ The configuration resides in the file *config.cfg*.
 
 # Installation
 
+foreman-host-builder requires gcc and python-devel when executing the setup installation.
+
 Get the code from this repository:
 
                 git clone https://github.com/misug/foreman-host-builder
 
-Use the installation script to install it and get the dependencies (e.g. gcc, python-devel):
+Use the installation script to install it and get the dependencies:
 
                 cd foreman-host-builder; python setup.py install
 
